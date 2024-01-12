@@ -1,29 +1,28 @@
 module.exports = {
   env: {
-    es6: true, // habilita funcionalidades do es6
-    node: true, // habilita variáveis globais do node
+    es6: true, // this automatically sets the ecmaVersion parser option to 6
+    node: true, // this automatically sets the es6 parser option to true
   },
   extends: [
-    'airbnb-base', // utiliza as regras do airbnb
-    'prettier', // utiliza as regras do prettier
+    'airbnb-base', // this extends the airbnb style guide
+    'plugin:prettier/recommended' // this extends the prettier style guide - depois de instalar o prettier
   ],
-  plugins: [
-    'prettier', // permite utilizar as regras do prettier
-  ],
+  plugins: ['prettier'], // this loads the prettier plugin - depois de instalar o prettier
   globals: {
-    Atomics: 'readonly', // permite utilizar variáveis globais do node
-    SharedArrayBuffer: 'readonly', // permite utilizar variáveis globais do node
+    Atomics: 'readonly', // this automatically sets the env.Atomics global
+    SharedArrayBuffer: 'readonly', // this automatically sets the env.SharedArrayBuffer global
   },
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'script',
+    ecmaVersion: 'latest', // this automatically sets the ecmaVersion parser option
+    sourceType: 'module', // this automatically sets the sourceType parser option
   },
   rules: {
-    "prettier/prettier": "error", // retorna erro caso o prettier encontre algum problema
-    "class-methods-use-this": "off", // desabilita a obrigatoriedade do this em métodos de classe
-    "no-param-reassign": "off", // permite receber um parâmetro e fazer alterações nele
-    "camelcase": "off", // permite usar variáveis com underscore
-    "no-underscore-dangle": "off", // permite usar underscore no nome de variáveis
-    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }], // permite declarar uma variável e não utilizá-la
+    "prettier/prettier": "error", // this enables the prettier plugin
+    "class-methods-use-this": "off", // this disables the class-methods-use-this rule
+    "no-param-reassign": "off", // this disables the no-param-reassign rule
+    "camelcase": "off", // this disables the camelcase rule
+    "no-underscore-dangle": "off", // this disables the no-underscore-dangle rule
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+    'linebreak-style': ['error', 'windows'],
   },
 };
