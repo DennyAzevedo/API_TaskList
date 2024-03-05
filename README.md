@@ -9,6 +9,7 @@ Projeto criado durante estudo de Node.js, em curso da Udemy.
 * nodemon
 * express
 * sucrase
+* sequelize
 
 #### Banco de Dados: PostgreSql
 
