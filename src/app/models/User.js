@@ -29,4 +29,4 @@ class User extends Model {
     }
 }
 
-export default User;
+export default User

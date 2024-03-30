@@ -14,7 +14,6 @@ routes.use(authMiddleware)
 
 routes.put('/users', UserController.update)
 
-
 /*
 routes.get('/teste', (req, res) => res.json({ ok: true }))
 routes.get('/testedb', async (req, res) => {
