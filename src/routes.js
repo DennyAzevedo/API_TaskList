@@ -3,6 +3,7 @@ import { Router } from 'express'
 import authMiddleware from './app/middlewares/auth'
 import UserController from './app/controllers/UserController'
 import SessionController from './app/controllers/SessionController'
+import TaskController from './app/controllers/TaskController'
 
 const routes = new Router()
 
@@ -13,7 +14,8 @@ routes.post('/sessions', SessionController.add)
 routes.use(authMiddleware)
 
 routes.put('/users', UserController.update)
-
+routes.post('/tasks', TaskController.add)
+routes.get('/tasks', TaskController.index)
 /*
 routes.get('/teste', (req, res) => res.json({ ok: true }))
 routes.get('/testedb', async (req, res) => {
