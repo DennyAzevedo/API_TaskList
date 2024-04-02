@@ -12,6 +12,7 @@ Projeto criado durante estudo de Node.js, em curso da Udemy.
 * sequelize
 * bcrypt
 * yup
+* cors
 
 #### Banco de Dados: PostgreSql
 
