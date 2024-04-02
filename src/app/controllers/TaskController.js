@@ -37,6 +37,33 @@ class TaskController {
 		await taskExists.update({ task })
 		return res.json(taskExists)
 	}
+	async done(req, res) {
+		const task = await Task.findByPk(req.params.id)
+		if (!task) {
+			return res.status(400).json({ error: 'Task not found.' })
+		}
+		await task.update({ check: true })
+		return res.json(task)
+	}
+	async undone(req, res) {
+		const task = await Task.findByPk(req.params.id)
+		if (!task) {
+			return res.status(400).json({ error: 'Task not found.' })
+		}
+		await task.update({ check: false })
+		return res.json(task)
+	}
+	async delete(req, res) {
+		const task = await Task.findByPk(req.params.id)
+		if (!task) {
+			return res.status(400).json({ error: 'Task not found.' })
+		}
+		if (task.user_id !== req.userId) {
+			return res.status(401).json({ error: 'You can only delete your tasks.' })
+		}
+		await task.destroy()
+		return res.json({ message: 'Task deleted.' })
+	}
 }
 
 export default new TaskController()
