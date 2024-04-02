@@ -16,17 +16,6 @@ routes.use(authMiddleware)
 routes.put('/users', UserController.update)
 routes.post('/tasks', TaskController.add)
 routes.get('/tasks', TaskController.index)
-/*
-routes.get('/teste', (req, res) => res.json({ ok: true }))
-routes.get('/testedb', async (req, res) => {
-	const user = await User.create({
-		name: 'Denny Azevedo',
-		email: 'dennyazevedo@gmail.com',
-		password_hash: '123456',
-	})
-
-	return res.json(user)
-})
-*/
+routes.put('/tasks/:id', TaskController.update)
 
 export default routes

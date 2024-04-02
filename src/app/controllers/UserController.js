@@ -3,7 +3,6 @@ import User from '../models/User'
 
 class UserController {
     async add(req, res) {
-        //const user = await User.create(req.body)
         const schema = Yup.object().shape({
             name: Yup.string().required(),
             email: Yup.string().email().required(),
